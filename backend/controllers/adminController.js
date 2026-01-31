@@ -10,13 +10,32 @@ export const deleteUser = asyncHandler(async (req, res) => {
   await User.findByIdAndDelete(req.params.id);
   res.json({ message: "user deleted" });
 });
-export const getStatstics = asyncHandler(async (req, res) => {
+export const getTask = asyncHandler(async (req, res) => {
+  const tasks = await Task.find().sort({ "user.name": 1 });
+  res.json(tasks);
+});
+export const getTaskById = asyncHandler(async (req, res) => {
+  const task = await Task.findById(req.params.id)
+    .populate("user", "name email");
+    
+  if (!task) {
+    res.status(404);
+    throw new Error("Task not found");
+  }
+  
+  res.json(task);
+});
+
+// controllers/adminController.js
+export const getStatistics = asyncHandler(async (req, res) => {
   const totalUser = await User.countDocuments();
   const totalTasks = await Task.countDocuments();
   const completedTask = await Task.countDocuments({ status: "completed" });
-  const completedtaskPercent = totalTasks === 0?0: Math.round((completedTask / totalTasks) * 100);
+  const completedtaskPercent =
+    totalTasks === 0 ? 0 : Math.round((completedTask / totalTasks) * 100);
   const uncompletedTask = totalTasks - completedTask;
   const uncompletedTaskPercent = 100 - completedtaskPercent;
+
   res.json({
     totalUser,
     totalTasks,

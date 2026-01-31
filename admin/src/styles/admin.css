@@ -1,0 +1,1181 @@
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Jura", serif;
+  color: #ffffff;
+  min-height: 100vh;
+  background: url("../assets/images/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* --- SECTION SWITCHER LOGIC --- */
+.admin-section {
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.admin-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- VERTICAL FIXED SIDEBAR --- */
+.admin-sidebar {
+  width: 90px;
+  height: calc(100vh - 40px);
+  margin: 20px 0 20px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 0;
+  z-index: 100;
+}
+
+.logo-sidebar {
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+  color: #fff;
+  opacity: 1;
+  text-align: center;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.side-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: 0.3s;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.side-link:hover,
+.side-link.active {
+  opacity: 1;
+  transform: scale(1.15);
+  color: #303836;
+}
+
+/* --- MAIN CONTENT & TOP BAR --- */
+.admin-main {
+  flex: 1;
+  padding: 20px 40px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for admin-main */
+.admin-main::-webkit-scrollbar {
+  width: 8px;
+}
+/* --- TASK MANAGEMENT STYLES --- */
+
+/* Task Meta in List */
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-title {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.task-details {
+  display: flex;
+  gap: 15px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.task-status,
+.task-priority,
+.task-due {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.task-status i,
+.task-priority i,
+.task-due i {
+  font-size: 0.6rem;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.filter-btn.active {
+  background: rgba(0, 255, 204, 0.2);
+  border-color: rgba(0, 255, 204, 0.4);
+  color: #00ffcc;
+}
+
+/* Task Detail View */
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-title-main h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.task-meta-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-badge,
+.priority-badge,
+.overdue-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.overdue-badge {
+  background: rgba(255, 68, 68, 0.2);
+  color: #ff4444;
+  border: 1px solid rgba(255, 68, 68, 0.4);
+}
+
+.task-date-info {
+  text-align: right;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.task-date-info p {
+  margin: 5px 0;
+}
+
+/* Task Info Grid */
+.task-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.info-card {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  border-left: 4px solid #00ffcc;
+}
+
+.info-card h4 {
+  color: #00ffcc;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.info-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.info-value i {
+  color: #00ffcc;
+  font-size: 1.2rem;
+}
+
+.status-display,
+.priority-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.status-dot,
+.priority-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Task Content Section */
+.task-content-section {
+  margin: 30px 0;
+}
+
+.task-content-section h4 {
+  color: #00ffcc;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-complete {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.btn-complete:hover {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.btn-complete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* No Tasks Message */
+.no-tasks {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Task Preview in Modal */
+.task-preview-modal {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+  border-left: 3px solid #ff9966;
+}
+
+/* Responsive Task Styles */
+@media (max-width: 768px) {
+  .task-detail-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .task-date-info {
+    text-align: left;
+  }
+  
+  .task-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .task-actions {
+    flex-direction: column;
+  }
+  
+  .btn-edit,
+  .btn-complete {
+    width: 100%;
+    justify-content: center;
+  }
+}
+.admin-main::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.admin-main::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 204, 0.2);
+  border-radius: 4px;
+}
+
+.admin-main::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 204, 0.4);
+}
+
+/* For Firefox */
+.admin-main {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 204, 0.3) rgba(255, 255, 255, 0.05);
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.small-avatar {
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.admin-role {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.admin-name {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* --- CONTENT CARDS --- */
+.admin-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  border-radius: 40px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.admin-logo-visible {
+  width: 130px;
+  margin: 0 auto 20px auto;
+  display: block;
+  filter: invert(0) brightness(1.3) contrast(1.2);
+  mix-blend-mode: screen;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.page-title.center {
+  text-align: center;
+}
+
+/* --- TABLE & LISTS WITH SCROLL --- */
+.admin-table-container {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 20px;
+  padding-right: 5px;
+}
+
+/* Custom scrollbar for table container */
+.admin-table-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 204, 0.2);
+  border-radius: 3px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 204, 0.3);
+}
+
+/* For Firefox */
+.admin-table-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 204, 0.2) rgba(255, 255, 255, 0.03);
+}
+
+.admin-table-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table-row {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px 25px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Prevent rows from shrinking */
+}
+
+.user-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* --- BUTTONS --- */
+.action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-view {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.btn-remove {
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: #ff9999;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.7rem;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+/* --- STATISTICS SECTION --- */
+.stats-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-stat-icon {
+  font-size: 2.2rem;
+  color: #fff;
+  opacity: 0.9;
+}
+.stat-card i {
+  font-size: 1.8rem;
+  opacity: 0.6;
+}
+
+.stat-info h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.stat-info p {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SVG Progress Circle */
+.progress-container {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.stat-circle {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 3.5;
+}
+.circle-progress {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* --- DETAIL VIEW & SETTINGS --- */
+.detail-view {
+  text-align: left !important;
+}
+.detail-title {
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 25px;
+}
+
+.detail-item {
+  font-size: 1rem;
+}
+.detail-item strong {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Loading and Error States --- */
+.loading,
+.error,
+.no-data,
+.no-users {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4444;
+}
+
+.no-data,
+.no-users {
+  color: #666;
+  font-style: italic;
+}
+
+/* --- Admin Header Actions --- */
+.admin-header-actions {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+/* --- User Info Display --- */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-confirm-delete {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.warning-text {
+  color: #ff4444;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* --- Enhanced Stats Styles --- */
+.stat-trend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+
+.stat-trend .fa-arrow-up {
+  color: #fff;
+}
+
+.stat-trend .fa-arrow-down {
+  color: #ff6666;
+}
+
+.stat-breakdown {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Progress Bars for Summary */
+.stats-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summary-card h4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #00ccaa);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Health Indicator */
+.health-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.health-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.health-dot.excellent {
+  background: #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+.health-dot.good {
+  background: #ffff00;
+  box-shadow: 0 0 10px #ffff00;
+}
+
+.health-dot.warning {
+  background: #ff9966;
+  box-shadow: 0 0 10px #ff9966;
+}
+
+.health-message {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Progress Circle Animation */
+.circle-progress {
+  transition: stroke-dasharray 0.5s ease;
+}
+
+/* Stat Card Hover Effects */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(17, 21, 101, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Posts Component Styles --- */
+.post-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.post-preview {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.post-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.post-author,
+.post-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Post Detail Styles */
+.post-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-author-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar-small {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.post-content-full {
+  margin: 30px 0;
+}
+
+.post-content-full h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.content-box {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  border-radius: 15px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.post-stats {
+  display: flex;
+  gap: 30px;
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.stat-item i {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.post-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+/* Modal Styles for Posts */
+.post-preview-modal {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+  border-left: 3px solid #ff9966;
+}
+
+.post-preview-modal p {
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Fix for delete button not logging out */
+.btn-remove:disabled {
+  background: rgba(255, 77, 77, 0.1) !important;
+  border-color: rgba(255, 77, 77, 0.2) !important;
+  color: #ff9999 !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Top Bar Enhanced Styles --- */
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.small-avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #fff, #0b228c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.admin-role {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.admin-name {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 2px;
+}
+
+.admin-email {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* Hover effect */
+.admin-profile:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 255, 204, 0.2);
+  transform: translateY(-1px);
+  transition: all 0.3s ease;
+}
+
+/* Optional: Add logout button in top bar */
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.btn-logout-mini {
+  background: rgba(255, 77, 77, 0.1);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: #ff9999;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-logout-mini:hover {
+  background: rgba(255, 77, 77, 0.2);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 20px;
+  }
+
+  .progress-container {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* --- Disabled Button --- */
+.btn-remove:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+  accent-color: #fff;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 850px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: calc(100% - 40px);
+    height: 60px;
+    margin: 10px 20px;
+    flex-direction: row;
+    padding: 0 20px;
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .logo-sidebar {
+    margin-right: 15px;
+  }
+  .stats-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-table-container {
+    max-height: 400px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .admin-main {
+    padding: 15px;
+  }
+  
+  .admin-card {
+    padding: 25px;
+  }
+  
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .top-bar-actions {
+    align-self: flex-end;
+  }
+  
+  .action-btns {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .admin-table-container {
+    max-height: 350px;
+  }
+}
