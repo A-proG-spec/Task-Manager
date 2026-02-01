@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "697c56ef6730854b66461f1e",
+    "name": "Alex Johnson",
+    "email": "alex@techlead.com",
+    "password": "$2b$10$WKLhVworEZSxoLTj4nOM7ecFJbq.ilQuYMGSU9pA.aP.Cm0M7qupa",
+    "role": "admin",
+    "createdAt": "2026-01-30T06:59:59.394Z",
+    "updatedAt": "2026-01-30T06:59:59.394Z",
+    "__v": 0
+  },
+  {
+    "_id": "697c57646730854b66461f27",
+    "name": "Emma Wilson",
+    "email": "emma@designer.dev",
+    "password": "$2b$10$4KhE.UiSYz8I3hLSebg6kegow8huRCspPSF5T0e.kl81y5FsRegPq",
+    "role": "user",
+    "createdAt": "2026-01-30T07:01:56.544Z",
+    "updatedAt": "2026-01-30T07:01:56.544Z",
+    "__v": 0
+  },
+  {
+    "_id": "697c57476730854b66461f24",
+    "name": "Mike Rodriguez",
+    "email": "mike@backend.dev",
+    "password": "$2b$10$objiFwLUDhfk5aL7wbiy7.d8gnDlLYGc4RE0cPA89kcPgKfz.zKMG",
+    "role": "user",
+    "createdAt": "2026-01-30T07:01:27.231Z",
+    "updatedAt": "2026-01-30T07:01:27.231Z",
+    "__v": 0
+  },
+  {
+    "_id": "697e287840b4d7ad63f77d62",
+    "name": "Test",
+    "email": "test1@gmail.com",
+    "password": "$2b$10$FYibw5xCwIXmpOE4egpAU.GZQu4pCn2UtYP9hEXV4gmV/COwC.phS",
+    "role": "user",
+    "createdAt": "2026-01-31T16:06:16.489Z",
+    "updatedAt": "2026-01-31T16:06:16.489Z",
+    "__v": 0
+  }
+]
+admin
+{
+  "email":"antenehwondwosen@gmail.com",
+  "password":"337739aa"
+}
