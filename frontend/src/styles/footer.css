@@ -1,0 +1,248 @@
+/* src/styles/footer.css */
+
+.site-footer {
+  background: linear-gradient(135deg, #2e241a 0%, #16213e 100%);
+  color: #e6e6e6;
+  padding: 2rem 0 0;
+  border-top: 1px solid #2d3748;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  margin-top: auto; /* This pushes footer to bottom */
+}
+
+/* For sticky footer layout - Add these classes to your main app structure */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.footer-section {
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  color: #64b5f6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.info-item i {
+  color: #64b5f6;
+  width: 20px;
+}
+
+.footer-link {
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.footer-link:hover {
+  color: #64b5f6;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+  background: rgba(100, 181, 246, 0.1);
+  color: #64b5f6;
+  padding: 0.3rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(100, 181, 246, 0.3);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #e6e6e6;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  background: #64b5f6;
+  color: #1a1a2e;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #2d3748;
+  padding: 1.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 1.5rem 0 0;
+    overflow-x: hidden;
+  }
+
+  .footer-container {
+    padding: 0 0.75rem;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .footer-section {
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .footer-title {
+    font-size: 1rem;
+  }
+
+  .info-item,
+  .footer-link {
+    font-size: 0.85rem;
+  }
+
+  .tech-stack {
+    justify-content: center;
+    gap: 0.4rem;
+    max-width: 100%;
+  }
+
+  .tech-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  .footer-social {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem 0;
+    width: 100%;
+  }
+
+  .copyright,
+  .disclaimer {
+    padding: 0 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copyright p,
+  .disclaimer {
+    margin: 0 auto;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 0.5rem;
+  }
+
+  .info-item,
+  .footer-link {
+    font-size: 0.8rem;
+  }
+
+  .tech-stack {
+    gap: 0.3rem;
+  }
+
+  .tech-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

@@ -1,0 +1,176 @@
+/* src/styles/header.css */
+/* ===== HEADER STYLES ===== */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.header-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ===== BUTTON STYLES ===== */
+.btn-logout {
+  background: rgba(255, 77, 77, 0.1);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: #ff9999;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: rgba(255, 77, 77, 0.2);
+  color: #ff7777;
+}
+
+.btn-new-task {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-new-task:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===== MOBILE NAVIGATION ===== */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE HEADER ===== */
+@media (max-width: 768px) {
+  .dash-header {
+    padding: 12px 15px;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    border-radius: 0 0 0 15px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: hidden;
+  }
+
+  .nav-toggle:checked ~ .header-nav {
+    transform: translateX(0);
+  }
+
+  .nav-toggle-label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .nav-toggle-label span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    transition: 0.3s;
+  }
+
+  .nav-toggle-label span:nth-child(1) {
+    top: 8px;
+  }
+  .nav-toggle-label span:nth-child(2) {
+    top: 14px;
+  }
+  .nav-toggle-label span:nth-child(3) {
+    top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .header-nav {
+    top: 50px;
+    width: 180px;
+    padding: 15px;
+    overflow-x: hidden;
+  }
+}

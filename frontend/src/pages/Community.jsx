@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { postsAPI, communityAPI } from "../services/api";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/community.css"
 
 const Community = () => {
   const [posts, setPosts] = useState([]);

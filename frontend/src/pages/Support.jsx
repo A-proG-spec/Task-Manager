@@ -2,6 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/global.css";
+import "../styles/about.css";
+
 import { useAuth } from "../context/AuthContext";
 const Support = () => {
   const { user } = useAuth();

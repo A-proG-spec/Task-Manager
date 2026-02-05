@@ -1,0 +1,101 @@
+/* src/styles/community.css */
+/* ===== COMMUNITY STYLES ===== */
+.desktop-layout.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 25px;
+  width: 100%;
+}
+
+.scrollable-posts {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.scrollable-posts .task-row {
+  margin-bottom: 10px;
+}
+
+.post-stats {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.post-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.post-stat i {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.no-posts {
+  text-align: center;
+  padding: 30px;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.no-posts a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.no-posts a:hover {
+  text-decoration: underline;
+}
+
+/* ===== COMMUNITY MOBILE REORDERING ===== */
+@media (max-width: 1024px) {
+  .desktop-layout.grid-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .mobile-order-1 {
+    order: 1;
+  }
+  
+  .mobile-order-2 {
+    order: 2;
+  }
+  
+  .side-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-layout.grid-layout {
+    gap: 15px;
+  }
+  
+  .side-wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .scrollable-posts {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollable-posts {
+    max-height: 350px;
+  }
+}

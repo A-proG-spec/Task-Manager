@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import "../styles/global.css";
-
+import "../styles/policy.css";
 const PrivacyPolicy = () => {
   return (
     <>
@@ -19,37 +19,47 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          <div className="content-wrapper" style={{ textAlign: "left", maxWidth: "800px" }}>
+          <div
+            className="content-wrapper"
+            style={{ textAlign: "left", maxWidth: "800px" }}
+          >
             <div className="text-container">
               <div className="policy-section">
                 <h3>1. Introduction</h3>
                 <p>
-                  Welcome to Olympus Task Manager. This Privacy Policy explains how we collect, use, 
-                  disclose, and safeguard your information when you use our web application. Please read 
-                  this privacy policy carefully. If you do not agree with the terms of this privacy policy, 
-                  please do not access the application.
+                  Welcome to Olympus Task Manager. This Privacy Policy explains
+                  how we collect, use, disclose, and safeguard your information
+                  when you use our web application. Please read this privacy
+                  policy carefully. If you do not agree with the terms of this
+                  privacy policy, please do not access the application.
                 </p>
               </div>
 
               <div className="policy-section">
                 <h3>2. Information We Collect</h3>
-                <p><strong>Personal Data:</strong></p>
+                <p>
+                  <strong>Personal Data:</strong>
+                </p>
                 <ul>
                   <li>Email address</li>
                   <li>Full name</li>
                   <li>Password (encrypted)</li>
                   <li>User role (admin/user)</li>
                 </ul>
-                
-                <p><strong>Task Data:</strong></p>
+
+                <p>
+                  <strong>Task Data:</strong>
+                </p>
                 <ul>
                   <li>Task titles and descriptions</li>
                   <li>Due dates and priorities</li>
                   <li>Task status and completion dates</li>
                   <li>Project information</li>
                 </ul>
-                
-                <p><strong>Community Data:</strong></p>
+
+                <p>
+                  <strong>Community Data:</strong>
+                </p>
                 <ul>
                   <li>Posts and comments</li>
                   <li>Likes and interactions</li>
@@ -73,31 +83,38 @@ const PrivacyPolicy = () => {
               <div className="policy-section">
                 <h3>4. Data Security</h3>
                 <p>
-                  We implement appropriate technical and organizational security measures to protect 
-                  your personal information. Passwords are encrypted using industry-standard hashing 
-                  algorithms. However, no method of transmission over the Internet or electronic storage 
-                  is 100% secure, and we cannot guarantee absolute security.
+                  We implement appropriate technical and organizational security
+                  measures to protect your personal information. Passwords are
+                  encrypted using industry-standard hashing algorithms. However,
+                  no method of transmission over the Internet or electronic
+                  storage is 100% secure, and we cannot guarantee absolute
+                  security.
                 </p>
               </div>
 
               <div className="policy-section">
                 <h3>5. Data Retention</h3>
                 <p>
-                  We retain your personal information only for as long as necessary to fulfill the 
-                  purposes outlined in this Privacy Policy. You may request deletion of your account 
-                  and associated data by contacting us at{" "}
-                  <a href="mailto:antenehwondwosen@gmail.com" style={{ color: "#00ffcc" }}>
+                  We retain your personal information only for as long as
+                  necessary to fulfill the purposes outlined in this Privacy
+                  Policy. You may request deletion of your account and
+                  associated data by contacting us at{" "}
+                  <a
+                    href="mailto:antenehwondwosen@gmail.com"
+                    style={{ color: "#00ffcc" }}
+                  >
                     antenehwondwosen@gmail.com
-                  </a>.
+                  </a>
+                  .
                 </p>
               </div>
 
               <div className="policy-section">
                 <h3>6. Third-Party Services</h3>
                 <p>
-                  This application may use third-party services that collect information used to 
-                  identify you. These services have their own privacy policies addressing how they 
-                  use such information.
+                  This application may use third-party services that collect
+                  information used to identify you. These services have their
+                  own privacy policies addressing how they use such information.
                 </p>
               </div>
 
@@ -117,9 +134,10 @@ const PrivacyPolicy = () => {
               <div className="policy-section">
                 <h3>8. Children's Privacy</h3>
                 <p>
-                  Our application is not intended for individuals under the age of 13. We do not 
-                  knowingly collect personal information from children under 13. If you are a parent 
-                  or guardian and believe your child has provided us with personal information, please 
+                  Our application is not intended for individuals under the age
+                  of 13. We do not knowingly collect personal information from
+                  children under 13. If you are a parent or guardian and believe
+                  your child has provided us with personal information, please
                   contact us.
                 </p>
               </div>
@@ -127,27 +145,32 @@ const PrivacyPolicy = () => {
               <div className="policy-section">
                 <h3>9. Changes to This Privacy Policy</h3>
                 <p>
-                  We may update our Privacy Policy from time to time. We will notify you of any changes 
-                  by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+                  We may update our Privacy Policy from time to time. We will
+                  notify you of any changes by posting the new Privacy Policy on
+                  this page and updating the "Last Updated" date.
                 </p>
               </div>
 
               <div className="policy-section">
                 <h3>10. Contact Us</h3>
                 <p>
-                  If you have any questions about this Privacy Policy, please contact us:
+                  If you have any questions about this Privacy Policy, please
+                  contact us:
                 </p>
                 <p>
                   <strong>Email:</strong>{" "}
-                  <a href="mailto:antenehwondwosen@gmail.com" style={{ color: "#00ffcc" }}>
+                  <a
+                    href="mailto:antenehwondwosen@gmail.com"
+                    style={{ color: "#00ffcc" }}
+                  >
                     antenehwondwosen@gmail.com
                   </a>
                 </p>
                 <p>
                   <strong>GitHub:</strong>{" "}
-                  <a 
-                    href="https://github.com/A-proG-spec/" 
-                    target="_blank" 
+                  <a
+                    href="https://github.com/A-proG-spec/"
+                    target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: "#00ffcc" }}
                   >
@@ -156,7 +179,10 @@ const PrivacyPolicy = () => {
                 </p>
               </div>
 
-              <div className="form-actions" style={{ marginTop: "40px", justifyContent: "center" }}>
+              <div
+                className="form-actions"
+                style={{ marginTop: "40px", justifyContent: "center" }}
+              >
                 <Link to="/" className="btn-secondary">
                   Back to Home
                 </Link>

@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/auth.css";
 
 /**
  * Register Component
- * 
+ *
  * Handles user registration with form validation and API integration
  * @component
  * @returns {JSX.Element} Register page component

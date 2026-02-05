@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { tasksAPI } from "../services/api";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/taskdetail.css";
 
 const TaskDetail = () => {
   const [task, setTask] = useState(null);
@@ -49,7 +50,10 @@ const TaskDetail = () => {
     return (
       <div className="error-container">
         <h3>{error}</h3>
-        <button onClick={() => navigate("/dashboard")} className="btn-secondary">
+        <button
+          onClick={() => navigate("/dashboard")}
+          className="btn-secondary"
+        >
           Back to Dashboard
         </button>
       </div>
@@ -60,7 +64,10 @@ const TaskDetail = () => {
     return (
       <div className="error-container">
         <h3>Task not found</h3>
-        <button onClick={() => navigate("/dashboard")} className="btn-secondary">
+        <button
+          onClick={() => navigate("/dashboard")}
+          className="btn-secondary"
+        >
           Back to Dashboard
         </button>
       </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/about.css"
 
 const About = () => {
   return (

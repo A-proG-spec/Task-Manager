@@ -4,14 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/auth.css";
 
-/**
- * Login Component
- * 
- * Handles user authentication with form validation and API integration
- * @component
- * @returns {JSX.Element} Login page component
- */
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -25,9 +20,9 @@ const Login = () => {
   useEffect(() => {
     setLocalError("");
   }, []);
-  
+
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLocalError("");

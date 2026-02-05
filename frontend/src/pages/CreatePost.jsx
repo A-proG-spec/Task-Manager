@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { postsAPI } from '../services/api';
 import Header from '../components/Header';
 import '../styles/global.css';
+import "../styles/create.css"
 
 const CreatePost = () => {
   const [formData, setFormData] = useState({

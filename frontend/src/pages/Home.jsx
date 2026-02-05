@@ -2,12 +2,12 @@
 import React from "react";
 import Header from "../components/Header";
 import "../styles/global.css";
-
+import "../styles/home.css";
 const Home = () => {
   return (
     <>
       <Header showMobileMenu={true} />
-      
+
       <main className="hero">
         <div className="hero-content-wrapper">
           <div className="hero-text">
@@ -24,12 +24,10 @@ const Home = () => {
       <section className="content-grid">
         <div className="right-col">
           <p>
-            <strong>
-              Olympus Task Manager is an elite productivity suite designed for
-              those who seek clarity in chaos. By blending intuitive UI with
-              powerful automation, we help you organize complex projects into
-              manageable steps.
-            </strong>
+            Olympus Task Manager is an elite productivity suite designed for
+            those who seek clarity in chaos. By blending intuitive UI with
+            powerful automation, we help you organize complex projects into
+            manageable steps.
           </p>
         </div>
       </section>

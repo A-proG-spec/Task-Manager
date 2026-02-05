@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { tasksAPI } from "../services/api";
 import Header from "../components/Header";
 import "../styles/global.css";
-
+import "../styles/create.css"
 const CreateTask = () => {
   const [formData, setFormData] = useState({
     title: "",

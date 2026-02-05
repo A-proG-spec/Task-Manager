@@ -32,7 +32,7 @@ export const authAPI = {
       return response.data;
     } catch (error) {
       console.log("API registration error: ", error);
-      throw error; // 🔥 VERY IMPORTANT
+      throw error; 
     }
   },
   login: (credentials) => api.post("auth/login", credentials),

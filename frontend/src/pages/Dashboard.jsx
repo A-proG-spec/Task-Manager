@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { tasksAPI } from "../services/api";
 import Header from "../components/Header";
 import "../styles/global.css";
+import "../styles/dashoard.css";
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -97,7 +98,7 @@ const Dashboard = () => {
               <div className="sub-panel profile-box">
                 <div className="avatar">{user?.name?.charAt(0) || "U"}</div>
                 <h3>{user?.name || "User"}</h3>
-                <p className="muted">{user?.email || ""}</p>
+                <p className="muted">{user?.email|| ""}</p>
                 <p className="role-badge">{user?.role}</p>
               </div>
 
