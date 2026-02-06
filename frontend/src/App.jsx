@@ -82,8 +82,8 @@ function App() {
             {/* Redirect any unknown route to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </AuthProvider>
   );
