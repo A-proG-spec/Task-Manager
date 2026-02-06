@@ -1,19 +1,16 @@
 .site-footer {
-  background: #000000 0%;
+  background: #000000;
   color: #e6e6e6;
   padding: 2rem 0 0;
   border-top: 1px solid #2d3748;
   width: 100%;
   overflow-x: hidden;
-  position: relative;
-  bottom: 0;
-  left: 0;
- 
   margin-top: auto; /* This pushes footer to bottom */
+  /* Removed position: relative and bottom: 0 */
 }
 
-/* For sticky footer layout - Add these classes to your main app structure */
-.app-wrapper {
+/* Remove these from footer.css - they should be in your App structure */
+/* .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -22,7 +19,7 @@
 .main-content {
   flex: 1 0 auto;
   width: 100%;
-}
+} */
 
 .footer-container {
   max-width: 1200px;
@@ -159,7 +156,6 @@
   .footer-container {
     padding: 0 0.75rem;
     max-width: 100%;
-    overflow-x: hidden;
   }
 
   .footer-content {
@@ -167,13 +163,11 @@
     gap: 1.5rem;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
   }
 
   .footer-section {
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
   }
 
   .footer-title {
@@ -194,7 +188,6 @@
   .tech-badge {
     font-size: 0.75rem;
     padding: 0.25rem 0.6rem;
-    white-space: nowrap;
   }
 
   .footer-social {
