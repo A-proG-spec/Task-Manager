@@ -12,10 +12,7 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = [
-  "https://task-manager-five-alpha-56.vercel.app",
-  "https://task-manager-git-master-antenehs-projects-69af1458.vercel.app",
-];
+const allowedOrigins = process.env.FRONTEND_URL;
 
 app.use(
   cors({
@@ -28,7 +25,7 @@ app.use(
       }
     },
     credentials: true,
-  }),
+  })
 );
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
