@@ -41,15 +41,24 @@ const Register = () => {
     }
 
     setIsLoading(true);
-    const result = await register(formData);
 
-    setIsLoading(false);
+    try {
+      const result = await register(formData);
+      setIsLoading(false);
 
-    if (result.success) {
-      navigate("/dashboard");
-    } else {
-      setLocalError(result.error || "Registration failed");
-      console.log("registration error: ", localError);
+      // Check for a token or message instead of success
+      if (result.token || result.message) {
+        console.log("Registration successful:", result);
+        // save token if sent
+        if (result.token) localStorage.setItem("token", result.token);
+        navigate("/dashboard");
+      } else {
+        setLocalError(result.error || "Registration failed");
+      }
+    } catch (err) {
+      setIsLoading(false);
+      setLocalError(err.response?.data?.error || "Registration failed");
+      console.log("registration error: ", err);
     }
   };
 
