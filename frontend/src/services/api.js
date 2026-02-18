@@ -35,7 +35,7 @@ export const authAPI = {
       throw error; 
     }
   },
-  login: (credentials) => api.post("auth/login", credentials),
+  login: (credentials) => api.post("/auth/login", credentials),
   getProfile: () => api.get("/auth/me"),
 };
 
